@@ -1,0 +1,4 @@
+pandas
+numpy
+tensorflow<2.10
+keras
