@@ -2,6 +2,9 @@ import pandas
 import numpy
 from sklearn.model_selection import train_test_split
 from sklearn import linear_model
+import matplotlib.pyplot as pyplot
+from matplotlib import style
+import pickle
 
 def main():
     data = pandas.read_csv("./student-mat.csv", sep=";", index_col=0)
