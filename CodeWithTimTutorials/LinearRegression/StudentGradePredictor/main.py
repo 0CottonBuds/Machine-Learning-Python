@@ -20,6 +20,7 @@ def main():
     acc = linear.score(training_data_test, actual_answers_test)
     print(acc)
 
+    # predict using training data 
     predictions = linear.predict(training_data_test)
 
     for i in range(len(predictions)):
