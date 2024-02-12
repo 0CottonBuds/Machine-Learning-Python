@@ -21,15 +21,17 @@ def main():
     linear = linear_model.LinearRegression()
     linear.fit(training_data_train, actual_answers_train)
     acc = linear.score(training_data_test, actual_answers_test)
-    print(acc)
 
-
-    # this saves the model
-    with open("./studentModel.pickle", "wb") as saved_model:
-        pickle.dump(linear, saved_model) 
-
+    # load pickle studentModel model 
     pickle_in = open("studentModel.pickle", "rb")
-    linear = pickle.load(pickle_in)
+    saved_model : linear_model.LinearRegression = pickle.load(pickle_in)
+
+    # this saves the model if the accuracy of the new model is higher
+    current_model_acc =linear.score(training_data_test, actual_answers_test) 
+    saved_model_acc = saved_model.score(training_data_test, actual_answers_test) 
+    if(current_model_acc > saved_model_acc):
+        with open("./studentModel.pickle", "wb") as saved_model:
+            pickle.dump(linear, saved_model) 
 
     # predict using training data 
     predictions = linear.predict(training_data_test)
