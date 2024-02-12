@@ -23,8 +23,13 @@ def main():
     acc = linear.score(training_data_test, actual_answers_test)
     print(acc)
 
+
+    # this saves the model
     with open("./studentModel.pickle", "wb") as saved_model:
         pickle.dump(linear, saved_model) 
+
+    pickle_in = open("studentModel.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     # predict using training data 
     predictions = linear.predict(training_data_test)
