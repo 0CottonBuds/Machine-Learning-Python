@@ -27,11 +27,19 @@ def main():
     saved_model : linear_model.LinearRegression = pickle.load(pickle_in)
 
     # this saves the model if the accuracy of the new model is higher
+    acc = 0
     current_model_acc =linear.score(training_data_test, actual_answers_test) 
     saved_model_acc = saved_model.score(training_data_test, actual_answers_test) 
     if(current_model_acc > saved_model_acc):
         with open("./studentModel.pickle", "wb") as saved_model:
             pickle.dump(linear, saved_model) 
+            acc = current_model_acc
+            print(f"current model has better accuracy: {current_model_acc}")
+            print(f"saved new model")
+    else:
+        acc = saved_model_acc
+        print(f"saved model has better accuracy: {saved_model_acc}")
+        print(f"new model not saved")
 
     # predict using training data 
     predictions = linear.predict(training_data_test)
@@ -39,6 +47,7 @@ def main():
     # print prediction, data, and actual answers
     for i in range(len(predictions)):
         print(predictions[i], training_data_test[i], actual_answers_test[i])
+    print(f"current accuracy: {acc}")
 
 if __name__ == "__main__":
     main()
