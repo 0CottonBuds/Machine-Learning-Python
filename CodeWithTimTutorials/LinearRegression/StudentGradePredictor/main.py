@@ -41,13 +41,22 @@ def main():
         print(f"saved model has better accuracy: {saved_model_acc}")
         print(f"new model not saved")
 
-    # predict using training data 
-    predictions = linear.predict(training_data_test)
+    # predict using training data and saved model
+    pickle_in = open("studentModel.pickle", "rb")
+    saved_model: linear_model.LinearRegression = pickle.load(pickle_in)
+    predictions = saved_model.predict(training_data_test)
 
     # print prediction, data, and actual answers
     for i in range(len(predictions)):
         print(predictions[i], training_data_test[i], actual_answers_test[i])
     print(f"current accuracy: {acc}")
+
+    # Plotting the results using matplotlib
+    style.use("ggplot")
+    pyplot.scatter(data["G1"], data[labelToPredict])
+    pyplot.xlabel = "G1"
+    pyplot.ylabel = "Final Grade"
+    pyplot.show()
 
 if __name__ == "__main__":
     main()
