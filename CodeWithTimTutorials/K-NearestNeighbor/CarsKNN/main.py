@@ -26,9 +26,13 @@ predictions = list(cls)
 train_data, test_data, train_answers, test_answers = train_test_split(attributes, predictions, train_size=.1) 
 
 model = KNeighborsClassifier(n_neighbors=9)
-
 model.fit(train_data, train_answers)
-
 acc = model.score(test_data, test_answers)
 
 print(acc)
+
+predicted_data = model.predict(test_data)
+names = ["unacc", "acc", "good", "vgood"]
+
+for i in range(len(predicted_data)):
+    print(f"Data: {test_data[i]}", f"Predicted: {names[predicted_data[i]]}", f"Actual Answer: {names[test_answers[i]]}")
