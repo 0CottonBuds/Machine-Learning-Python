@@ -9,6 +9,7 @@ from sklearn import linear_model, preprocessing
 data = pandas.read_csv("./car.data")
 
 preprocessor = preprocessing.LabelEncoder()
+# fit transform converts string data to computable int data for the AI model. Do this for non numerical attributes
 buying = preprocessor.fit_transform(list(data["buying"]))
 maint = preprocessor.fit_transform(list(data["maint"]))
 door = preprocessor.fit_transform(list(data["door"]))
