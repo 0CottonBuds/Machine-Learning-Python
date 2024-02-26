@@ -23,6 +23,12 @@ predict = "class"
 attributes = list(zip(buying, maint, door, persons, lug_boot, safety))
 predictions = list(cls)
 
-train_data, test_data, train_answers, test_answers = train_test_split(attributes, predictions, train_size=.10) 
+train_data, test_data, train_answers, test_answers = train_test_split(attributes, predictions, train_size=.1) 
 
+model = KNeighborsClassifier(n_neighbors=9)
 
+model.fit(train_data, train_answers)
+
+acc = model.score(test_data, test_answers)
+
+print(acc)
