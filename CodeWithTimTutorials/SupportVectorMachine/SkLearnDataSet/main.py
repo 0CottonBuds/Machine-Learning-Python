@@ -16,6 +16,7 @@ predictions = data.target
 
 train_data, test_data, train_answers, test_answers = train_test_split(attributes, predictions, train_size=0.25)
 
+# use this for printing the predictions using index
 classes = ["malignant", "benign"]
 
 classifier = svm.SVC(kernel="linear", C=3)
@@ -23,6 +24,8 @@ classifier.fit(train_data, train_answers)
 
 predictions = classifier.predict(test_data)
 
+# new way of measuring accuracy
+# params = answers, predictions
 acc = metrics.accuracy_score(test_answers, predictions)
 
 print(acc)
