@@ -18,7 +18,7 @@ train_data, test_data, train_answers, test_answers = train_test_split(attributes
 
 classes = ["malignant", "benign"]
 
-classifier = svm.SVC()
+classifier = svm.SVC(kernel="linear", C=3)
 classifier.fit(train_data, train_answers)
 
 predictions = classifier.predict(test_data)
