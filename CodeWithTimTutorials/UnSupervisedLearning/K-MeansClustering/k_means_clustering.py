@@ -16,7 +16,7 @@ k = len(numpy.unique(prediction_labels))
 
 samples, features  = attributes.shape
 
-# this function is used to score the accuracy of the k mean clustering model 
+# this function is used to score the accuracy of the k mean clustering model. using the metric module we can access its various functions to score our cluster model
 def bench_k_means(estimator, name, data):
     estimator.fit(data)
     print('%-9s\t%i\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'
