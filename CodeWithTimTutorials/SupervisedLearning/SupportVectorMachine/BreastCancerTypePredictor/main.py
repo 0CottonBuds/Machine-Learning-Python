@@ -24,6 +24,10 @@ classifier.fit(train_data, train_answers)
 
 predictions = classifier.predict(test_data)
 
+print(f"DATA:\tPREDICTION\tCORRECT ANSWER\t")
+for i in range(len(predictions)):
+    print(f"{test_data[i]}\t{classes[predictions[i]]}\t{classes[test_answers[i]]}")
+
 # new way of measuring accuracy
 # params = answers, predictions
 acc = metrics.accuracy_score(test_answers, predictions)
