@@ -38,3 +38,9 @@ model.fit(train_images, train_labels, epochs=5)
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 
 print(f"ACC:\t {test_acc}")
+
+# predict using test images
+prediction = model.predict(test_images)
+
+# print the label with the highest number from the prediction
+print(label_names[np.argmax(prediction[0])])
