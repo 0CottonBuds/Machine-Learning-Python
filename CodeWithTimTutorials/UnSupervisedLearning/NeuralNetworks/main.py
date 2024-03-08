@@ -17,6 +17,7 @@ label_names: list[str] = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
 train_images = train_images/255.5
 test_images = test_images/255.5
 
+# keras.Sequential is the sequence of layers of our neural network. left to right 
 # This is the architecture of the neural network 
 # The input layer is a flatten 28 by 28, 2 dimensional array
 # One hidden layer with 128 neurons with activation of RELU
