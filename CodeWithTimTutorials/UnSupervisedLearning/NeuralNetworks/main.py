@@ -43,10 +43,10 @@ print(f"ACC:\t {test_acc}")
 prediction = model.predict(test_images)
 
 for i in range(5):
-    pyplot.grid(false)
-    pyplot.imshow(test_images[i], cmap=pyplot.cm.binary)
-    pyplot.xlabel(f"Actual: {label_names[test_labels[i]]}")
-    pyplot.title(f"Model prediction: {label_names[np.argmax(prediction[i])]}")
+    pyplot.grid(visible=False)
+    pyplot.imshow(X=test_images[i], cmap=pyplot.cm.binary)
+    pyplot.xlabel(xlabel=f"Actual: {label_names[test_labels[i]]}")
+    pyplot.title(label=f"Model prediction: {label_names[np.argmax(prediction[i])]}")
     pyplot.show()
 
 # # print the label with the highest number from the prediction
